@@ -1,0 +1,55 @@
+{#-
+  Site footer. Replaces Material's footer partial.
+  Everything it shows comes from `extra:` in mkdocs.yml (tagline, affiliations, social),
+  so the footer never needs editing when an appointment or a link changes.
+-#}
+<footer class="ss-footer">
+  <div class="md-grid ss-footer__inner">
+
+    <div class="ss-footer__brand">
+      <img src="{{ 'assets/images/brand/logo.svg' | url }}" alt="" aria-hidden="true">
+      <div>
+        <p class="ss-footer__name">{{ config.site_author }}</p>
+        {% if config.extra.tagline %}
+          <p class="ss-footer__tagline">{{ config.extra.tagline }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if config.extra.affiliations %}
+      <div>
+        <p class="ss-footer__heading">Affiliations</p>
+        <ul class="ss-footer__list">
+          {% for item in config.extra.affiliations %}
+            <li><a href="{{ item.link }}" target="_blank" rel="noopener">{{ item.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if config.extra.social %}
+      <div>
+        <p class="ss-footer__heading">Connect</p>
+        <div class="ss-footer__social">
+          {% for social in config.extra.social %}
+            {% if "://" in social.link or "mailto:" in social.link %}
+              {% set href = social.link %}
+            {% else %}
+              {% set href = social.link | url %}
+            {% endif %}
+            <a href="{{ href }}" title="{{ social.name }}" aria-label="{{ social.name }}"
+               {% if "://" in social.link %}target="_blank" rel="noopener"{% endif %}>
+              {% include ".icons/" ~ social.icon ~ ".svg" %}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+
+  <div class="md-grid ss-footer__base">
+    <span>{{ config.copyright }}</span>
+    <span>Built with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a></span>
+  </div>
+</footer>

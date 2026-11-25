@@ -1,0 +1,104 @@
+site_name: Santiago Schnell
+site_url: https://santiago-schnell.github.io/
+site_author: Santiago Schnell
+site_description: >-
+  Santiago Schnell is a mathematical biologist working on enzyme kinetics, protein aggregation and
+  measurement science, and Adjunct Professor at the University of Michigan and the University of Notre Dame.
+copyright: © 2026 Santiago Schnell
+
+theme:
+  name: material
+  custom_dir: overrides
+  logo: assets/images/brand/logo.svg
+  favicon: assets/images/brand/favicon.svg
+  language: en
+  font: false                      # fonts are self-hosted (see stylesheets/fonts.css)
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.top               # back-to-top button
+    - toc.integrate
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+extra_css:
+  - stylesheets/fonts.css
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  generator: false
+  tagline: Mathematical biology · Measurement science · Higher education
+  # Shown in the footer under "Affiliations".
+  affiliations:
+    - name: Molecular & Integrative Physiology, University of Michigan
+      link: https://medicine.umich.edu/dept/molecular-integrative-physiology
+    - name: Biological Sciences, University of Notre Dame
+      link: https://biology.nd.edu/
+  # Shown in the footer under "Connect". Relative links (like the CV) are resolved against the site root.
+  social:
+    - icon: fontawesome/solid/envelope
+      name: Email
+      link: mailto:schnells@umich.edu
+    - icon: fontawesome/brands/google-scholar
+      name: Google Scholar
+      link: https://scholar.google.com/citations?user=E6wiEloAAAAJ&hl=en
+    - icon: fontawesome/brands/linkedin
+      name: LinkedIn
+      link: https://www.linkedin.com/in/santiago-schnell
+    - icon: fontawesome/brands/github
+      name: GitHub
+      link: https://github.com/santiago-schnell
+    - icon: fontawesome/solid/file-lines
+      name: Curriculum vitae (PDF)
+      link: assets/files/schnell-cv.pdf
+
+nav:
+  - Home: index.md
+  - Santiago Schnell: about.md
+  - Research: research.md
+  - Team:
+      - Overview: team/index.md
+      - Joining the Research Group: team/joining.md
+  - Publications:
+      - Publications: publications/index.md
+      - Covers: publications/covers.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      separator: "-"
+  - footnotes
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.tasklist
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+
+plugins:
+  - search

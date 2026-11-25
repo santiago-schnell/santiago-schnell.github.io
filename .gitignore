@@ -1,0 +1,5 @@
+# MkDocs build output (GitHub Actions builds it fresh on every push)
+site/
+.cache/
+__pycache__/
+.DS_Store
